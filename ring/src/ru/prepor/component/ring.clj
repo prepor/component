@@ -4,14 +4,16 @@
 (defprotocol RingHandler)
 
 (defmacro defhandler
-  [n dependencies handler-binding & body]
+  [n dependencies handler-def]
   (let [record-name (symbol (format "%s*" n))
         ns (str *ns*)]
     `(do
-       (defrecord ~record-name ~dependencies
+       (defrecord ~record-name ~(conj dependencies '_handler)
          RingHandler
+         component/Lifecycle
+         (start [this#] (assoc this# :_handler ~handler-def))
          clojure.lang.IFn
-         (invoke [_ ~(first handler-binding)] ~@body )
+         (invoke [_ req#] (~'_handler req#))
          (applyTo [this# args#] (clojure.lang.AFn/applyToHelper this# args#)))
        (def ~n
          (with-meta (~(symbol (format "map->%s*" n)) {})

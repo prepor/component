@@ -5,10 +5,11 @@
 
 (defrecord Greeting [msg])
 
-(defhandler HelloWorld [greeting] [req]
-  {:status 200
-   :headers {"Content-Type" "text/html"}
-   :body (str (:msg greeting) ", " (-> req :params :name))})
+(defhandler HelloWorld [greeting]
+  (fn [req]
+    {:status 200
+     :headers {"Content-Type" "text/html"}
+     :body (str (:msg greeting) ", " (-> req :params :name))}))
 
 (deftest basic
   (let [s (-> (component/system-map
