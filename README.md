@@ -1,6 +1,6 @@
 # ru.prepor.component
 
-[![Travis status](https://secure.travis-ci.org/prepor/schema-compojure.png)](http://travis-ci.org/prepor/component)
+[![Travis status](https://secure.travis-ci.org/prepor/component.png)](http://travis-ci.org/prepor/component)
 
 This is a collection of small utilities for integration different libraries with [component](https://github.com/stuartsierra/component).
 
