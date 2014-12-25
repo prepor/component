@@ -128,7 +128,7 @@ Use it!
 
 ### http-kit
 
-Now we can start ring handler from previous examples via http-kit
+Now we can start a ring handler from previous examples via http-kit
 
 ```clojure
 (require '[ru.prepor.component.httpkit :refer [new-http-server]])
