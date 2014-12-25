@@ -12,6 +12,7 @@
          RingHandler
          component/Lifecycle
          (start [this#] (assoc this# :_handler ~handler-def))
+         (stop [this#] this#)
          clojure.lang.IFn
          (invoke [_ req#] (~'_handler req#))
          (applyTo [this# args#] (clojure.lang.AFn/applyToHelper this# args#)))
@@ -28,7 +29,7 @@
     (let [handlers (->> (map val this)
                         (filter (partial satisfies? RingHandler)))]
       (assoc this :handler (fn [request] (some #(% request) handlers)))))
-  (stop [this])
+  (stop [this] this)
   clojure.lang.IFn
   (invoke [_ req] (handler req))
   (applyTo [this args] (clojure.lang.AFn/applyToHelper this args)))

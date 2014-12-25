@@ -1,4 +1,4 @@
-(defproject ru.prepor.component/ring "0.1.1-SNAPSHOT"
+(defproject ru.prepor.component/ring "0.1.2"
   :description "component-aware ring utility"
   :url "http://github.com/prepor/component"
   :license {:name "Eclipse Public License"

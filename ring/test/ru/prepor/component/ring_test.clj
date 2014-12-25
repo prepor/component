@@ -17,13 +17,3 @@
               (with-app :app HelloWorld)
               (component/start))]
     (is (= "Hello, Andrew" (-> ((:app s) {:params {:name "Andrew"}}) :body)))))
-
-
-
-
-
-
-
-
-
-
