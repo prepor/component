@@ -2,7 +2,7 @@
 
 [![Travis status](https://secure.travis-ci.org/prepor/component.png)](http://travis-ci.org/prepor/component)
 
-This is a collection of small utilities to integrate different libraries with [component](https://github.com/stuartsierra/component).
+This is a collection of small utilities for integration of different libraries with [component](https://github.com/stuartsierra/component).
 
 [![Clojars Project](http://clojars.org/ru.prepor.component/latest-version.svg)](http://clojars.org/ru.prepor.component)
 [![Clojars Project](http://clojars.org/ru.prepor.component/ring/latest-version.svg)](http://clojars.org/ru.prepor.component/ring)
@@ -32,7 +32,7 @@ Ring handlers can be defined as components with attached dependencies informatio
        :body (str (:msg greeting) ", " (-> req :params :name))})))
 ```
 
-After starting this component can be used as usual ring handler.
+Once started, this component can be can be used as usual ring handler.
 
 ```clojure
 (def handler (-> (assoc HelloWorld :greeting (->Greeting "Hello"))
@@ -57,7 +57,7 @@ Let's define one more component
        :body (str (:msg greeting) ", " (:name master))})))
 ```
 
-Components can be combined to new component and attached to system-map before system started.
+Components can be combined into new component and attached to system-map before system started.
 
 ```clojure
 (def system (-> (component/system-map
@@ -67,7 +67,7 @@ Components can be combined to new component and attached to system-map before sy
                 (component/start)))
 ```
 
-`with-app` takes keyword in system map for attaching and list of ring components. They will be called one by one until one returns something. And again, it can be used as usual ring handler.
+`with-app` takes a keyword in system map for attaching, and a list of ring components. They will be called one by one until one returns something. And again, this can be used as usual ring handler.
 
 ```clojure
 ((:app system) {:request-method :get
@@ -84,7 +84,7 @@ Components can be combined to new component and attached to system-map before sy
 
 Actually this is not utility for [compojure](https://github.com/weavejester/compojure), but for [schema-compojure](https://github.com/prepor/schema-compojure) :)
 
-Compojure handlers are just ring handlers, you're not surprised, aren't you?
+Compojure handlers are just ring handlers, you're not surprised, are you?
 
 ```clojure
 (defrecord Greeting [msg])
@@ -102,7 +102,7 @@ Compojure handlers are just ring handlers, you're not surprised, aren't you?
     (GET "/connections" [] (format "Connection status: %s" (:connection db)))))
 ```
 
-Matcher can be defined for individual handler, routes or as dependency for entire system.
+A matcher can be defined (either) for an individual handler, routes or as a dependency for the entire system.
 
 ```clojure
 (def system (-> (component/system-map
