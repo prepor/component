@@ -2,7 +2,7 @@
 
 [![Travis status](https://secure.travis-ci.org/prepor/component.png)](http://travis-ci.org/prepor/component)
 
-This is a collection of small utilities for integration different libraries with [component](https://github.com/stuartsierra/component).
+This is a collection of small utilities to integrate different libraries with [component](https://github.com/stuartsierra/component).
 
 [![Clojars Project](http://clojars.org/ru.prepor.component/latest-version.svg)](http://clojars.org/ru.prepor.component)
 [![Clojars Project](http://clojars.org/ru.prepor.component/ring/latest-version.svg)](http://clojars.org/ru.prepor.component/ring)
@@ -111,7 +111,7 @@ Matcher can be defined for individual handler, routes or as dependency for entir
                 (with-matcher coerce/string-coercion-matcher)
                 (with-app :app Api Admin)
                 (component/start)))
-                ```
+```
 
 Use it!
 
